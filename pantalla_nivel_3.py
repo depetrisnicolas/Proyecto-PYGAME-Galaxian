@@ -27,6 +27,7 @@ def nivel_3(pantalla_principal, nivel):
 	pygame.mixer.music.set_volume(0.5)
 	laser_sound = pygame.mixer.Sound("15 Fighter Shot2.mp3")
 	explosion_sound = pygame.mixer.Sound("assets/explosion.wav")
+	laser_enemy_sound = pygame.mixer.Sound("laser5.ogg")
 	pygame.mixer.music.load("Boss Fight.ogg")
 	pygame.mixer.music.set_volume(0.2)
 	pygame.mixer.music.play(loops=-1)	
@@ -99,6 +100,8 @@ def nivel_3(pantalla_principal, nivel):
 			if event.type == timer_disparo_enemigo:
 				bullet_enemigo = Bullet_enemigo(nave_boss.rect.centerx, nave_boss.rect.bottom)
 				bullets_enemigo.add(bullet_enemigo)
+				if len(enemigos1_list) == 0 and len(enemigos2_list) == 0: 
+					laser_enemy_sound.play()
 
 		#ACTUALIZACION DE TODOS LOS SPRITES DE LA PANTALLA
 		all_sprites.update()
