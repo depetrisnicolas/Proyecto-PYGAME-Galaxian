@@ -54,12 +54,12 @@ while running:
         nombre_jugador(pantalla_del_juego)
 
         # ACTUALIZAR BDD
-        # with sqlite3.connect("bd_btf.db") as conexion:
-        #     try:
-        #         conexion.execute("insert into players(name,time,score) values (?,?,?)", (Nombre_jugador.nombre_jugador, tiempo_formateado, Score.score_partida))
-        #         conexion.commit()# Actualiza los datos realmente en la tabla
-        #     except:
-        #         print("Error")
+        with sqlite3.connect("bd_btf.db") as conexion:
+            try:
+                conexion.execute("insert into players(name,time,score) values (?,?,?)", (Nombre_jugador.nombre_jugador, tiempo_formateado, Score.score_partida))
+                conexion.commit()# Actualiza los datos realmente en la tabla
+                except:
+                    print("Error")
 
         #MOSTRAR RANKING
         ranking(pantalla_del_juego)
